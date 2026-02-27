@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compare Loan Offers in Romania | Secure & Fast</title>
+<meta name="description" content="Compare loan offers in Romania. Secure online process. We connect you with verified lenders.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+font-family:'Inter',sans-serif;
+margin:0;
+background:linear-gradient(135deg,#1e3a8a,#16a34a);
+}
+.section-white{
+background:#fff;
+padding:60px 20px;
+}
+.container{
+max-width:1100px;
+margin:auto;
+}
+.hero-flex{
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+gap:40px;
+}
+h1{font-size:34px;color:#1e3a8a;}
+.btn{
+display:inline-block;
+padding:14px 28px;
+background:#16a34a;
+color:#fff;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+border:none;
+cursor:pointer;
+}
+.btn-blue{background:#1e3a8a;}
+.card{
+flex:1 1 250px;
+background:#f4f6fa;
+padding:20px;
+border-radius:12px;
+}
+.grid{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+}
+.wrapper{
+max-width:520px;
+margin:40px auto;
+background:#fff;
+padding:30px;
+border-radius:16px;
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+.step{display:none;}
+.step.active{display:block;}
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+.progress{height:6px;background:#eee;border-radius:6px;margin-bottom:20px;}
+.progress-bar{height:6px;background:#1e3a8a;width:50%;border-radius:6px;}
+.slider-value{text-align:center;font-weight:600;color:#1e3a8a;}
+.faq-item{margin-top:10px;border:1px solid #ddd;border-radius:8px;}
+.faq-question{padding:10px;background:#f4f6fa;cursor:pointer;font-weight:600;}
+.faq-answer{display:none;padding:10px;}
+.trust{text-align:center;font-size:13px;color:#666;margin-top:20px;}
+.footer{text-align:center;font-size:12px;color:#666;margin-top:20px;}
+@media(max-width:768px){
+.hero-flex{flex-direction:column;}
+h1{font-size:26px;}
+}
+</style>
+
+<script>
+function nextStep(){
+document.getElementById('step1').classList.remove('active');
+document.getElementById('step2').classList.add('active');
+document.querySelector('.progress-bar').style.width="100%";
+}
+function prevStep(){
+document.getElementById('step2').classList.remove('active');
+document.getElementById('step1').classList.add('active');
+document.querySelector('.progress-bar').style.width="50%";
+}
+function updateValue(val){
+document.getElementById('loanValue').innerText=val+" RON";
+calculateEMI();
+}
+function calculateEMI(){
+let amount=document.getElementById("loanAmount").value;
+let emi=(amount*1.12)/12;
+document.getElementById("emiResult").innerText="Estimated Monthly: "+Math.round(emi)+" RON";
+}
+function toggleFAQ(el){
+let ans=el.nextElementSibling;
+ans.style.display=ans.style.display==="block"?"none":"block";
+}
+</script>
+
+</head>
+<body>
+
+<!-- HERO -->
+<div class="section-white">
+<div class="container hero-flex">
+
+<div>
+<h1>Compare Loan Offers in Romania</h1>
+<p>Secure online application. We connect you with verified lenders across Romania.</p>
+<a href="#quiz" class="btn">Check Eligibility</a>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" style="max-width:100%;border-radius:12px;">
+</div>
+
+</div>
+</div>
+
+<!-- BENEFITS -->
+<div class="section-white">
+<div class="container">
+<h2>Why Use Our Platform?</h2>
+<div class="grid">
+<div class="card">⚡ Fast Review by Partner Lenders</div>
+<div class="card">🔒 Secure & Encrypted Application</div>
+<div class="card">📄 Transparent Loan Terms</div>
+</div>
+</div>
+</div>
+
+<!-- QUIZ FUNNEL -->
+<div class="wrapper" id="quiz">
+
+<h2 style="text-align:center;color:#1e3a8a;">Check Your Loan Eligibility</h2>
+
+<div class="progress"><div class="progress-bar"></div></div>
+
+<div id="step1" class="step active">
+
+<label>Loan Amount</label>
+<input type="range" id="loanAmount" min="1000" max="20000" step="500"
+oninput="updateValue(this.value)">
+<div class="slider-value" id="loanValue">1000 RON</div>
+<div id="emiResult" style="text-align:center;color:#16a34a;font-weight:600;">
+Estimated Monthly: 0 RON
+</div>
+
+<select>
+<option>Personal</option>
+<option>Medical</option>
+<option>Home Improvement</option>
+<option>Other</option>
+</select>
+
+<button onclick="nextStep()">Continue</button>
+
+</div>
+
+<div id="step2" class="step">
+
+<input type="text" placeholder="Full Name">
+<input type="text" placeholder="Phone (+40)">
+<input type="email" placeholder="Email">
+
+<label>
+<input type="checkbox" required>
+I agree to be contacted by partner lenders.
+</label>
+
+<button>Submit Application</button>
+<button class="btn-blue" onclick="prevStep()">Back</button>
+
+</div>
+
+<div class="trust">
+🔒 Secure | ⚡ Fast | 📄 Transparent
+</div>
+
+</div>
+
+<!-- FAQ -->
+<div class="section-white">
+<div class="container">
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">Are you a direct lender?</div>
+<div class="faq-answer">No. We operate as an independent comparison platform.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">Is approval guaranteed?</div>
+<div class="faq-answer">Approval depends on lender criteria and eligibility.</div>
+</div>
+
+</div>
+</div>
+
+<div class="footer">
+We are an independent loan comparison platform in Romania. We do not directly provide loans. All loan approvals depend on partner lender policies.
+</div>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[{
+"@type":"Question",
+"name":"Are you a direct lender?",
+"acceptedAnswer":{"@type":"Answer","text":"We operate as an independent comparison platform."}
+},{
+"@type":"Question",
+"name":"Is approval guaranteed?",
+"acceptedAnswer":{"@type":"Answer","text":"Approval depends on lender criteria and eligibility."}
+}]
+}
+</script>
+
+</body>
+</html>
